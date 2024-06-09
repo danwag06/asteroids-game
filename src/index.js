@@ -5,8 +5,15 @@ const game = new GameService(
   Origin.DEV
 );
 
+const startButton = document.getElementById("startButton");
+
 document.addEventListener("DOMContentLoaded", function () {
   game.init();
+  startButton.addEventListener("click", async () => {
+    const res = await game.play();
+    localStorage.setItem("playId", res.playId);
+    startButton.classList.add("hidden");
+  });
 });
 
 // Export to make it available globally

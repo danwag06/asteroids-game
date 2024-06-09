@@ -1,8 +1,6 @@
 // ===== START NEW GAME ======
-const newGame = () => {
-  HasteGame.play();
+const newGame = async () => {
   ship = newAirship();
-
   if (lsTest()) {
     var scoreStr = localStorage.getItem(HIGHSCORE_KEY);
     if (scoreStr == null) highScore = 0;
@@ -23,12 +21,16 @@ const newLevel = () => {
 };
 
 // ===== GAME OVER ======
-const gameOver = () => {
+const gameOver = async () => {
+  const playId = localStorage.getItem("playId");
+  const startButton = document.getElementById("startButton");
   ship.dead = true;
   Text = "Game Over";
   textOpc = 255;
+  await HasteGame.submitScore(playId, score);
   score = 0;
-  // stop();
+  localStorage.removeItem("playId");
+  startButton.classList.remove("hidden");
 };
 
 // ======== MAKING NEW AIRSHIP =========

@@ -32,7 +32,8 @@ function setup() {
   newGame();
 }
 
-function draw() {
+async function draw() {
+  if (!localStorage.getItem("playId")) return;
   var exploding = ship.explodeTime > 0;
   var blinking = ship.blinkNum % 2 == 0;
   background(0);
