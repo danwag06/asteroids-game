@@ -1,8 +1,8 @@
 import { GameService, Origin } from "haste-arcade-sdk";
 
 const game = new GameService(
-  "f8c22e6c-1086-4529-8800-2c72f98b9915",
-  Origin.DEV
+  "5c1c525a-a94b-4d89-adb4-8e33668bb006",
+  Origin.PROD
 );
 
 const startButton = document.getElementById("startButton");
