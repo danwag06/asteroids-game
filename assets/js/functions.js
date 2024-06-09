@@ -27,9 +27,9 @@ const gameOver = async () => {
   ship.dead = true;
   Text = "Game Over";
   textOpc = 255;
+  localStorage.removeItem("playId");
   await HasteGame.submitScore(playId, score);
   score = 0;
-  localStorage.removeItem("playId");
   startButton.classList.remove("hidden");
 };
 
