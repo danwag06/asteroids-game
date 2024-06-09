@@ -84,5 +84,4 @@ function draw() {
   if (keyIsPressed && !exploding && !ship.dead) checkKeys();
 
   drawText(exploding);
- 
 }
